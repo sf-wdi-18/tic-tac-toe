@@ -13,3 +13,44 @@
   display: inline-block;
   margin-bottom: 4px;
 }
+
+
+/* Original work below */
+
+.square {
+  display: inline-block;
+  border: 5px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+}
+
+.markX {
+  display: table-cell;
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #81F7F3;
+}
+
+.markO {
+  display: table-cell;
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #81F781;
+}
+
+.blank {
+  display: table-cell;
+  width: 100px;
+  height: 100px;
+  font-size: 80px;
+  text-align: center;
+  vertical-align: middle;
+  background-color: #D8D8D8;
+}
