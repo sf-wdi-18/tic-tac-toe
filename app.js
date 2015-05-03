@@ -151,8 +151,6 @@ function squareValue(key) {
 
 // winningSquares is in the form of 'X048'
 function highlightBorders(winningSquares) {
-  console.log(winningSquares);
-  console.log(squareBorders);
   squareBorders[parseInt(winningSquares[1])].setAttribute('class', 'win');
   squareBorders[parseInt(winningSquares[2])].setAttribute('class', 'win');
   squareBorders[parseInt(winningSquares[3])].setAttribute('class', 'win');
