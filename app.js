@@ -5,6 +5,8 @@ var board;
 var squares;
 var squareBorders;
 var reset;
+var playerX;
+var playerY;
 var turn = 'X';
 var playCount = 0;
 
@@ -15,6 +17,10 @@ window.addEventListener('load', function () {
   squares = document.querySelectorAll('.square p');
   squareBorders = document.querySelectorAll('.square');
   reset = document.querySelector('.reset');
+  playerX = document.querySelector('#player_x');
+  playerO = document.querySelector('#player_o');
+
+  displayTurn();
 
   // Listen for clicks on squares
   // Track variable 'turn' for next move and end of game
@@ -43,6 +49,7 @@ window.addEventListener('load', function () {
       // reset any highlighted winning squares
       squareBorders[i].setAttribute('class', 'square');
       turn = 'X';
+      displayTurn();
       playCount = 0;
     }
   });
@@ -59,11 +66,23 @@ function setSquare(square) {
 function checkGameStatus() {
   var winner;
   if (winner = getWinner()) {
-    console.log(winner);
     gameOver(winner);
   }
   else if (++playCount === 9)
     gameOver('tie');
+  // game still going, switch turn
+  else displayTurn();
+}
+
+function displayTurn() {
+  if (turn === 'X' ) {
+    playerO.innerHTML = 'Player O ';
+    playerX.innerHTML = 'Player X &diams; ';
+  }
+  else {
+    playerO.innerHTML = 'Player O &diams; ';
+    playerX.innerHTML = 'Player X ';
+  }
 }
 
 function gameOver(winner) {
@@ -88,7 +107,6 @@ function getWinner() {
     return 'X' + winnerIs('X');
   }
   else if (winnerIs('O')) {
-    console.log(winnerIs('O'));
     return 'O' + winnerIs('O');
   }
   else
