@@ -1,9 +1,11 @@
 #board {
   width: 31em;
-  height: 30em;
+  height: 31em;
   position: relative;
-  top: 30px;
-  left: 25%;
+  top: 0px;
+  /*left: 25%;*/
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .box {
@@ -14,21 +16,52 @@
   margin-bottom: 4px;
 }
 
+.title {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 10px;
+}
 
 /* Original work below */
 
+.players {
+  position: relative;
+  display: inline-block;
+  left: 2em;
+}
+
+.reset {
+  position: absolute;
+  display: inline-block;
+  top: 2em;
+  right: 2em;
+}
+
 .square {
   display: inline-block;
-  border: 5px solid black;
-  width: 100px;
-  height: 100px;
-  margin: 10px;
+  border: 1px solid black;
+  width: 10em;
+  height: 10em;
+  margin-bottom: 1px;
+}
+
+/* display: table-cell is required in order to use vertical-align
+ This allows for an X or O perfectly centered in the p */
+.blank {
+  display: table-cell;
+  width: 10em;
+  height: 10em;
+  font-size: 16px;
+  text-align: center;
+  vertical-align: middle;
+  /*background-color: #D8D8D8;*/
 }
 
 .markX {
   display: table-cell;
-  width: 100px;
-  height: 100px;
+  width: 10em;
+  height: 10em;
   font-size: 80px;
   text-align: center;
   vertical-align: middle;
@@ -37,20 +70,10 @@
 
 .markO {
   display: table-cell;
-  width: 100px;
-  height: 100px;
+  width: 10em;
+  height: 10em;
   font-size: 80px;
   text-align: center;
   vertical-align: middle;
   background-color: #81F781;
-}
-
-.blank {
-  display: table-cell;
-  width: 100px;
-  height: 100px;
-  font-size: 80px;
-  text-align: center;
-  vertical-align: middle;
-  background-color: #D8D8D8;
 }

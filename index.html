@@ -5,39 +5,54 @@
     <link href="style.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Tic-Tac-Toe</h1>
+    <h1 class='title'>Tic-Tac-Toe</h1>
+
     <div id='board'>
+
+      <!-- Wrap the players in a div so they can be stacked on time of
+      one another in that div -->
+      <div class='players'>
+        <p>Player X:</p>
+        <p>Player O:</p>
+      </div>
+
+      <!-- the reset button is displayed inline with the stacked players -->
+      <div class='reset'>
+        <button>Reset</button>
+      </div>
+
+      <br>
+
       <!-- the `&nbsp;` in each div is a non-breakable space.
            It prevents the div from collapsing. -->
-
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
-      <div class="square">
-        <p class="blank"> </p>
-      </div>
-      <br>
-      <div class="square">
-        <p class="blank"> </p>
-      </div>
-      <div class="square">
-        <p class="blank"> </p>
-      </div>
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
       <br>
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
-      <div class="square">
-        <p class="blank"> </p>
+      <div class='square'>
+        <p class='blank'> </p>
+      </div>
+      <br>
+      <div class='square'>
+        <p class='blank'> </p>
+      </div>
+      <div class='square'>
+        <p class='blank'> </p>
+      </div>
+      <div class='square'>
+        <p class='blank'> </p>
       </div>
 
 <!--       <div class='box'>&nbsp;</div>
