@@ -1,19 +1,11 @@
 #board {
-  width: 31em;
-  height: 31em;
+  width: 32em;
+  height: 32em;
   position: relative;
   top: 0px;
   /*left: 25%;*/
   margin-left: auto;
   margin-right: auto;
-}
-
-.box {
-  width: 10em;
-  height: 10em;
-  border: 1px solid black;
-  display: inline-block;
-  margin-bottom: 4px;
 }
 
 .title {
@@ -22,8 +14,6 @@
   margin-right: auto;
   margin-bottom: 10px;
 }
-
-/* Original work below */
 
 .players {
   position: relative;
@@ -40,12 +30,18 @@
 
 .square {
   display: inline-block;
-  border: 1px solid black;
+  border: 3px solid black;
   width: 10em;
   height: 10em;
   margin-bottom: 1px;
 }
-
+.win {
+  display: inline-block;
+  border: 3px solid yellow;
+  width: 10em;
+  height: 10em;
+  margin-bottom: 1px;
+}
 /* display: table-cell is required in order to use vertical-align
  This allows for an X or O perfectly centered in the p */
 .blank {
@@ -62,6 +58,7 @@
   display: table-cell;
   width: inherit;
   height: inherit;
+  font-family: Arial;
   font-size: 100px;
   text-align: center;
   vertical-align: middle;
@@ -72,8 +69,13 @@
   display: table-cell;
   width: inherit;
   height: inherit;
+  font-family: Arial;
   font-size: 100px;
   text-align: center;
   vertical-align: middle;
   background-color: #81F781;
+}
+
+.win {
+  border-color: yellow
 }
