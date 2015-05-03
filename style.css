@@ -50,29 +50,29 @@
  This allows for an X or O perfectly centered in the p */
 .blank {
   display: table-cell;
-  width: 10em;
-  height: 10em;
+  width: inherit;
+  height: inherit;
   font-size: 16px;
   text-align: center;
   vertical-align: middle;
   /*background-color: #D8D8D8;*/
 }
 
-.markX {
+.X {
   display: table-cell;
-  width: 10em;
-  height: 10em;
-  font-size: 80px;
+  width: inherit;
+  height: inherit;
+  font-size: 100px;
   text-align: center;
   vertical-align: middle;
   background-color: #81F7F3;
 }
 
-.markO {
+.O {
   display: table-cell;
-  width: 10em;
-  height: 10em;
-  font-size: 80px;
+  width: inherit;
+  height: inherit;
+  font-size: 100px;
   text-align: center;
   vertical-align: middle;
   background-color: #81F781;

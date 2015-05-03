@@ -1,51 +1,57 @@
 
-window.addEventListener("load", function (){
+// it is necessay to declare these variables outside the
+// event listener so that querySelector works properly
+var board;
+var squares;
+var squareBorders;
+var reset;
+var turn = 'X';
 
-  var board = document.querySelector("body");
-  var squares = document.querySelectorAll("p");
-  var squareBorders = document.querySelectorAll(".square");
-  var reset = document.querySelector("#reset");
-  var turn = "X";
+
+window.addEventListener('load', function (){
+
+  // Grab all the necessary elements
+  board = document.querySelector('body');
+  squares = document.querySelectorAll('.square p');
+  squareBorders = document.querySelectorAll('.square');
+  reset = document.querySelector('.reset');
+
+
+  // Listen for clicks on squares
+  // Track variable 'turn' for next move and end of game
+  // Disallow repeated moves on the same square
+  // Disallow moves after the game has been won
+  for (var i = 0; i < squares.length; i++) {
+    squares[i].addEventListener('click', function(event) {
+      if (squareEmpty(event.target)) {
+        setSquare(event.target);
+      }
+      else if (turn === 'game_over') {
+        alert("The game is over!  Click 'reset' to play again.");
+      }
+      else {
+        alert('That square has already been played!');
+      }
+    });
+  }
 
 });
 
+function setSquare(square) {
+  square.innerHTML = turn;  // turn = X or O
+  square.setAttribute('class', turn);
+  turn === 'X' ? turn = 'O' : turn = 'X';
+}
 
+function squareEmpty(square) {
+  return square.innerHTML === '';
+}
 
 
 // original work below
 
-// var board = document.querySelector("body");
-// var squares = document.getElementsByTagName("p");
-// var squareBorders = document.getElementsByTagName("div");
-// var reset = document.getElementById("reset");
-// var turn = "X";
 
-// // Listen for clicks on squares.
-// // Track variable 'turn' for next move and end of game.
-// // Disallow repeated moves on the same square.
-// // Disallow moves after the game has been won.
-// for (var i = 0; i < squares.length; i++) {
-//   squares[i].addEventListener("click", function() {
-//     if (event.target.innerHTML == "") {
-//       if (turn == "X") {
-//         event.target.innerHTML = "X";
-//         event.target.setAttribute("class", "markX");
-//         turn = "O";
-//       }
-//       else if (turn == "O") {
-//         event.target.innerHTML = "O";
-//         event.target.setAttribute("class", "markO");
-//         turn = "X";
-//       }
-//       else
-//         alert("The game is over!  Click 'reset' to play again.");
-//     }
-//     else if (turn == "over")
-//       alert("The game is over!  Click 'reset' to play again.");
-//     else
-//       alert("That square has already been played!");
-//   });
-// }
+
 
 // // If a winning combo is found, the combo is passed to win().
 // // Color borders of the winning squares.
