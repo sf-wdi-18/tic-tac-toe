@@ -1,5 +1,5 @@
 
-// it is necessay to declare these variables outside the
+// It is necessay to declare these variables outside the
 // event listener so that querySelector works properly
 var board;
 var squares;
@@ -9,6 +9,8 @@ var playerX;
 var playerY;
 var turn = 'X';
 var playCount = 0;
+var xConsecWins = 0;
+var oConsecWins = 0;
 
 window.addEventListener('load', function () {
 
@@ -20,6 +22,7 @@ window.addEventListener('load', function () {
   playerX = document.querySelector('#player_x');
   playerO = document.querySelector('#player_o');
 
+  // reset the turn indicator
   displayTurn();
 
   // Listen for clicks on squares
@@ -48,10 +51,10 @@ window.addEventListener('load', function () {
       squares[i].setAttribute('class', 'blank');
       // reset any highlighted winning squares
       squareBorders[i].setAttribute('class', 'square');
-      turn = 'X';
-      displayTurn();
-      playCount = 0;
     }
+    turn = 'X';
+    displayTurn();
+    playCount = 0;
   });
 
 });
@@ -64,7 +67,7 @@ function setSquare(square) {
 }
 
 function checkGameStatus() {
-  var winner;
+  var winner;  // a string to indicate the winner and winning squares, e.g. 'X012'
   if (winner = getWinner()) {
     gameOver(winner);
   }
@@ -92,11 +95,25 @@ function gameOver(winner) {
   else {
     highlightBorders(winner);
     // winner[0] is 'X' or 'O'
-    alert(winner[0] + ' won this round!');
+    alert(winner[0] + ' wins!');
+    // check for consecutive wins
+    checkConsecWins(winner[0]);
   }
   turn = 'game_over';
-  // increment player wins
-  // check for hat trick
+}
+
+// if any player scores three wins in a row, display a message
+function checkConsecWins(winner) {
+  if (winner === 'X') {
+    oConsecWins = 0;
+    if (++xConsecWins === 3)
+      playerX.innerHTML = 'Player X - <strong>HAT TRICK !!!</strong>';
+  }
+  else {
+    xConsecWins = 0;
+    if (++oConsecWins === 3);
+      playerO.innerHTML = 'Player O - <strong>HAT TRICK !!!</strong>';
+  }
 }
 
 // getWinner will return a win in the form of a string denoting
@@ -149,7 +166,7 @@ function squareValue(key) {
   }
 }
 
-// winningSquares is in the form of 'X048'
+// winningSquares is a string in the form of 'X048'
 function highlightBorders(winningSquares) {
   squareBorders[parseInt(winningSquares[1])].setAttribute('class', 'win');
   squareBorders[parseInt(winningSquares[2])].setAttribute('class', 'win');
