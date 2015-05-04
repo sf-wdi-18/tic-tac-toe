@@ -1,6 +1,5 @@
+// Tic Tac Toe
 
-// It is necessay to declare these variables outside the
-// event listener so that querySelector works properly
 var board;
 var squares;
 var squareBorders;
@@ -52,7 +51,9 @@ window.addEventListener('load', function () {
       // reset any highlighted winning squares
       squareBorders[i].setAttribute('class', 'square');
     }
+    // X always goes first
     turn = 'X';
+    // set the turn indicator
     displayTurn();
     playCount = 0;
   });
@@ -143,6 +144,7 @@ function winnerIs(player) {
          allThree(player, squareValue('2'), squareValue('4'), squareValue('6'));
 }
 
+// returns the combo of winning rows, e.g. '345'
 function allThree(player, squareOne, squareTwo, squareThree) {
   if ((squareOne[0] === player) && (squareTwo[0] === player) && (squareThree[0] === player))
     return squareOne[1] + squareTwo[1] + squareThree[1];
