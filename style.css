@@ -43,9 +43,10 @@
 }
 
 /* display: table-cell is required in order to use vertical-align
- This allows for an X or O perfectly centered in the p */
+ This allows for an X or O perfectly centered in the p element */
 .blank {
   display: table-cell;
+  /* inherit setting from parent element's class */
   width: inherit;
   height: inherit;
   font-size: 16px;
@@ -56,7 +57,6 @@
 
 .X {
   display: table-cell;
-  /* inherit setting from parent element's class */
   width: inherit;
   height: inherit;
   font-family: Arial;
